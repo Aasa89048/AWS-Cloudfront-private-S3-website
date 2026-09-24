@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luma — Culinary Excellence</title>
+    
+    <!-- Google Fonts fallback with rounded characteristics -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=SF+Pro+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ambient Gradient Spots -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar-wrapper">
+        <nav class="navbar glass-card">
+            <a href="#" class="logo">
+                 Luma Delights<span class="logo-dot">.</span>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#welcome" class="nav-link">Welcome</a>
+                <a href="#famous-dishes" class="nav-link">Famous Dishes</a>
+                <a href="#menu" class="nav-link">Full Menu</a>
+            </div>
+
+            <a href="#menu" class="btn btn-primary">Order Now</a>
+        </nav>
+    </header>
+
+    <!-- 1. WELCOMING HERO SECTION -->
+    <section id="welcome" class="hero-section">
+        <div class="hero-content">
+            <span class="badge">
+                ✨ A Brighter Culinary Tomorrow
+            </span>
+            <h1 class="hero-title">
+                eat well <br>
+                live well <br>
+                <span class="gradient-text">repeat.</span>
+            </h1>
+            <p class="hero-subtitle">
+                Welcome to Aura. We craft soul-nourishing dishes prepared with organic ingredients, warm clay-baked traditions, and vibrant modern flavors.
+            </p>
+            <div class="hero-buttons">
+                <a href="#famous-dishes" class="btn btn-primary">Explore Famous Dishes</a>
+                <a href="#menu" class="btn btn-secondary">View Menu</a>
+            </div>
+        </div>
+
+        <div class="hero-media">
+            <div class="hero-image-container">
+                <!-- PLACEHOLDER FOR HERO IMAGE -->
+                <img src="images/hero.png" 
+                     alt="Restaurant Atmosphere" 
+                     class="image-placeholder"
+                     onerror="this.onerror=null; this.parentElement.classList.add('fallback-box'); this.style.display='none'; this.parentElement.setAttribute('data-fallback', 'Insert Hero Image Here (e.g. path/to/hero-restaurant.jpg)');">
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. FAMOUS DISHES SHOWCASE SECTION -->
+    <section id="famous-dishes" class="section">
+        <div class="section-header">
+            <span class="badge-sub">Signature Creations</span>
+            <h2 class="section-title">Our Famous Dishes</h2>
+            <p class="section-subtitle">Handcrafted dishes loved by our guests, made daily with fresh local farm produce.</p>
+        </div>
+
+        <div class="dishes-grid">
+            <!-- Famous Dish 1 -->
+            <div class="glass-card dish-card">
+                <div class="dish-image-wrapper">
+                    <!-- PLACEHOLDER FOR DISH 1 -->
+                    <img src="images/famous1.jpeg" 
+                         alt="Terracotta Roasted Bowl" 
+                         class="image-placeholder"
+                         onerror="this.onerror=null; this.parentElement.classList.add('fallback-box'); this.style.display='none'; this.parentElement.setAttribute('data-fallback', 'Insert Dish 1 Image');">
+                    <span class="dish-tag">Chef's Special</span>
+                </div>
+                <div class="dish-info">
+                    <div class="dish-header">
+                        <h3 class="dish-title">Clay-Pot Braised Truffle Risotto</h3>
+                        <span class="dish-price">$24</span>
+                    </div>
+                    <p class="dish-desc">Slow-cooked arborio rice, wild forest mushrooms, autumn herbs, and aged parmesan broth.</p>
+                </div>
+            </div>
+
+            <!-- Famous Dish 2 -->
+            <div class="glass-card dish-card">
+                <div class="dish-image-wrapper">
+                    <!-- PLACEHOLDER FOR DISH 2 -->
+                    <img src="images/famous2.jpeg" 
+                         alt="Smoked Clay Salmon" 
+                         class="image-placeholder"
+                         onerror="this.onerror=null; this.parentElement.classList.add('fallback-box'); this.style.display='none'; this.parentElement.setAttribute('data-fallback', 'Insert Dish 2 Image');">
+                    <span class="dish-tag">Most Popular</span>
+                </div>
+                <div class="dish-info">
+                    <div class="dish-header">
+                        <h3 class="dish-title">Amber Citrus Glazed Salmon</h3>
+                        <span class="dish-price">$28</span>
+                    </div>
+                    <p class="dish-desc">Pan-seared Atlantic salmon, blood orangeReduction, spiced clay-roasted carrots, and quinoa.</p>
+                </div>
+            </div>
+
+            <!-- Famous Dish 3 -->
+            <div class="glass-card dish-card">
+                <div class="dish-image-wrapper">
+                    <!-- PLACEHOLDER FOR DISH 3 -->
+                    <img src="images/famous3.jpeg" 
+                         alt="Sunset Velvet Dessert" 
+                         class="image-placeholder"
+                         onerror="this.onerror=null; this.parentElement.classList.add('fallback-box'); this.style.display='none'; this.parentElement.setAttribute('data-fallback', 'Insert Dish 3 Image');">
+                    <span class="dish-tag">Signature Dessert</span>
+                </div>
+                <div class="dish-info">
+                    <div class="dish-header">
+                        <h3 class="dish-title">Sunset Berry Lava Delight</h3>
+                        <span class="dish-price">$14</span>
+                    </div>
+                    <p class="dish-desc">Warm chocolate melt cake served with fresh raspberry reduction and Madagascar vanilla bean gelato.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. MENU SECTION -->
+    <section id="menu" class="section">
+        <div class="section-header">
+            <span class="badge-sub">Taste Everything</span>
+            <h2 class="section-title">Explore Our Full Menu</h2>
+            <p class="section-subtitle">Selected with care to balance flavor, health, and memorable dining experiences.</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="menu-tabs">
+            <button class="menu-tab active" type="button">All Items</button>
+            <button class="menu-tab" type="button">Starters</button>
+            <button class="menu-tab" type="button">Mains</button>
+            <button class="menu-tab" type="button">Desserts</button>
+            <button class="menu-tab" type="button">Drinks</button>
+        </div>
+
+        <!-- Menu List Grid -->
+        <div class="menu-grid" id="menuGrid">
+            
+            <!-- Menu Item 1 -->
+            <div class="glass-card menu-item" data-category="starters">
+                <div class="menu-details">
+                    <div class="menu-title-row">
+                        <h4>Smoked Burrata & Heirloom Salad</h4>
+                        <span class="menu-price">$16</span>
+                    </div>
+                    <p>Artisanal burrata, heirloom tomatoes, fresh basil pest, balsamic drizzle.</p>
+                </div>
+            </div>
+
+            <!-- Menu Item 2 -->
+            <div class="glass-card menu-item" data-category="mains">
+                <div class="menu-details">
+                    <div class="menu-title-row">
+                        <h4>Wood-Fired Herb Roasted Chicken</h4>
+                        <span class="menu-price">$26</span>
+                    </div>
+                    <p>Free-range half chicken marinated with rosemary, garlic, served with truffle mash.</p>
+                </div>
+            </div>
+
+            <!-- Menu Item 3 -->
+            <div class="glass-card menu-item" data-category="starters">
+                <div class="menu-details">
+                    <div class="menu-title-row">
+                        <h4>Roasted Golden Squash Soup</h4>
+                        <span class="menu-price">$12</span>
+                    </div>
+                    <p>Creamy butternut squash, toasted pumpkin seeds, drizzled with spicy chili oil.</p>
+                </div>
+            </div>
+
+            <!-- Menu Item 4 -->
+            <div class="glass-card menu-item" data-category="mains">
+                <div class="menu-details">
+                    <div class="menu-title-row">
+                        <h4>Prime Terracotta Tenderloin</h4>
+                        <span class="menu-price">$36</span>
+                    </div>
+                    <p>8oz grass-fed fillet, red wine jus, roasted wild garlic, baby carrots.</p>
+                </div>
+            </div>
+
+            <!-- Menu Item 5 -->
+            <div class="glass-card menu-item" data-category="desserts">
+                <div class="menu-details">
+                    <div class="menu-title-row">
+                        <h4>Salted Caramel Panna Cotta</h4>
+                        <span class="menu-price">$11</span>
+                    </div>
+                    <p>Silky vanilla bean cream, hot amber caramel, hazelnut crumble.</p>
+                </div>
+            </div>
+
+            <!-- Menu Item 6 -->
+            <div class="glass-card menu-item" data-category="drinks">
+                <div class="menu-details">
+                    <div class="menu-title-row">
+                        <h4>Sunset Citrus Tonic</h4>
+                        <span class="menu-price">$8</span>
+                    </div>
+                    <p>Fresh blood orange juice, sparkling botanical tonic, rosemary sprig.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Simple Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Aura Restaurant. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

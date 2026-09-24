@@ -1,0 +1,515 @@
+/* ==========================================================================
+   COLOR PALETTE (Sampled directly from user artwork)
+    - Background: Warm Ivory Cream (#FBF4EC)
+   - Primary Dark Text: Espresso (#331A29)
+   - Accent / Clay Tone: Terracotta (#A35938 / #8C4B31)
+   - Gradient Primary: Sunset Orange (#ED7E3A)
+   - Gradient Secondary: Violet/Indigo (#683072)
+   - Glassmorphism Card Fill: Translucent Warm White (rgba(255, 250, 245, 0.72))
+   ========================================================================== */
+
+:root {
+    --bg-main: #FBF4EC;
+    --text-primary: #331A29;
+    --text-secondary: #6E5362;
+    --clay-accent: #A35938;
+    --clay-dark: #8C4B31;
+    
+    --orange-sunset: #ED7E3A;
+    --violet-accent: #683072;
+    --green-accent: #5F8335;
+    
+    --glass-bg: rgba(255, 250, 245, 0.72);
+    --glass-border: rgba(163, 89, 56, 0.15);
+    --glass-shadow: rgba(51, 26, 41, 0.06);
+
+    /* Apple SF Pro Rounded Font Stack */
+    --font-apple: "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Quicksand", system-ui, sans-serif;
+}
+
+/* Reset & Base Setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #FBF4EC 0%, #F3E7DE 100%);
+    color: var(--text-primary);
+    font-family: var(--font-apple);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+/* Ambient Subtle Lights */
+.ambient-glow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.glow-1 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, var(--orange-sunset) 0%, rgba(237, 126, 58, 0) 70%);
+    top: -100px;
+    left: -100px;
+}
+
+.glow-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--violet-accent) 0%, rgba(104, 48, 114, 0) 70%);
+    bottom: -150px;
+    right: -100px;
+}
+
+/* Liquid Glass Cards */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 16px 36px var(--glass-shadow);
+    border-radius: 28px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Navbar */
+.navbar-wrapper {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.navbar {
+    width: 100%;
+    max-width: 1050px;
+    padding: 12px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 50px;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.logo-dot {
+    color: var(--orange-sunset);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--clay-accent);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 26px;
+    border-radius: 50px;
+    font-family: var(--font-apple);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--orange-sunset), var(--violet-accent));
+    color: #FFFFFF;
+    box-shadow: 0 8px 20px rgba(237, 126, 58, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(237, 126, 58, 0.4);
+}
+
+.btn-secondary {
+    background: rgba(163, 89, 56, 0.1);
+    color: var(--clay-dark);
+    border: 1px solid rgba(163, 89, 56, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(163, 89, 56, 0.18);
+    transform: translateY(-2px);
+}
+
+/* Section Common Layout */
+.section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 24px;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 60px auto;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(237, 126, 58, 0.12);
+    color: var(--clay-dark);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.badge-sub {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(104, 48, 114, 0.1);
+    color: var(--violet-accent);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+    background: linear-gradient(135deg, var(--orange-sunset) 0%, var(--violet-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 1. Welcoming Hero */
+.hero-section {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 160px 24px 80px 24px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    max-width: 500px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.hero-image-container {
+    width: 100%;
+    height: 440px;
+    overflow: visible;
+    position: relative;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-placeholder {
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border: none;
+    background: transparent;
+    border-radius: 0;
+}
+
+/* Fallback box styling when images are not yet provided */
+.fallback-box {
+    background: linear-gradient(135deg, rgba(237, 126, 58, 0.08), rgba(104, 48, 114, 0.08));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    border: 2px dashed rgba(163, 89, 56, 0.3);
+}
+
+.fallback-box::before {
+    content: attr(data-fallback);
+    color: var(--clay-accent);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.fallback-box-sm {
+    background: rgba(163, 89, 56, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px dashed rgba(163, 89, 56, 0.3);
+    border-radius: 18px;
+}
+
+.fallback-box-sm::before {
+    content: attr(data-fallback);
+    color: var(--clay-accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* 2. Famous Dishes Section */
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 32px;
+}
+
+.dish-card {
+    overflow: hidden;
+    border-radius: 32px;
+}
+
+.dish-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 48px rgba(51, 26, 41, 0.12);
+}
+
+.dish-image-wrapper {
+    height: 230px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 32px 32px 0 0;
+    background: rgba(163, 89, 56, 0.06);
+}
+
+.dish-card .image-placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.dish-tag {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255, 250, 245, 0.85);
+    backdrop-filter: blur(10px);
+    color: var(--clay-dark);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 50px;
+}
+
+.dish-info {
+    padding: 28px;
+}
+
+.dish-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.dish-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.dish-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--clay-accent);
+}
+
+.dish-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* 3. Menu Section */
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.menu-tab {
+    padding: 10px 22px;
+    border-radius: 50px;
+    background: rgba(255, 250, 245, 0.6);
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    font-family: var(--font-apple);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.menu-tab.active, .menu-tab:hover {
+    background: var(--clay-accent);
+    color: #FFFFFF;
+    border-color: var(--clay-accent);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 20px;
+}
+
+.menu-item {
+    display: flex;
+    padding: 16px;
+    gap: 18px;
+    align-items: center;
+    border-radius: 24px;
+}
+
+.menu-item:hover {
+    transform: translateY(-3px);
+}
+
+.menu-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 18px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.menu-details {
+    flex-grow: 1;
+}
+
+.menu-title-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.menu-title-row h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.menu-price {
+    font-weight: 700;
+    color: var(--clay-accent);
+}
+
+.menu-details p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(163, 89, 56, 0.1);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 850px) {
+    .hero-section {
+        grid-template-columns: 1fr;
+        padding-top: 130px;
+        text-align: center;
+    }
+
+    .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        display: none; /* Can be toggled with mobile JS drawer if required */
+    }
+}
