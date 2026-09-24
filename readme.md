@@ -162,3 +162,54 @@ The deployment was validated through the following checks:
 | Response security headers | ✅ |
 | Cache invalidation | ✅ |
 
+## Future Improvements
+
+The current implementation focuses on secure CloudFront delivery from a private S3 origin. The following improvements could extend the project toward a more production-oriented architecture:
+
+### 1. Custom Domain and Managed TLS
+
+- Register or connect a custom domain using **Amazon Route 53**.
+- Use **AWS Certificate Manager (ACM)** to provision and manage an SSL/TLS certificate.
+- Configure CloudFront to serve the website through the custom domain.
+
+### 2. Web Application Firewall
+
+Add **AWS WAF** in front of CloudFront to provide additional protection against common web attacks and unwanted traffic.
+
+### 3. Automated Deployment Pipeline
+
+Add **GitHub Actions** to automate the deployment workflow:
+
+```text
+Git Push
+   |
+   v
+GitHub Actions
+   |
+   +--> Upload updated files to S3
+   |
+   +--> Create CloudFront invalidation
+   |
+   v
+Updated website
+```
+
+This would demonstrate basic CI/CD automation for static cloud workloads.
+
+### 4. Monitoring and Access Logging
+
+- Enable CloudFront access logging.
+- Use **Amazon CloudWatch** for monitoring and operational visibility.
+- Track requests, errors, cache behavior, and traffic patterns.
+
+### 5. Performance Optimization
+
+- Optimize images and static assets.
+- Add appropriate cache-control policies for different asset types.
+- Use long cache lifetimes for versioned assets such as CSS, JavaScript, and images.
+
+### 6. Infrastructure as Code
+
+Recreate the architecture using **AWS CloudFormation** or **Terraform** so the infrastructure can be deployed consistently and version-controlled.
+
+> These are planned improvements and are **not part of the current implementation**.
