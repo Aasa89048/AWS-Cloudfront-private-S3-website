@@ -1,8 +1,12 @@
 # Secure Static Website Delivery with Amazon CloudFront & S3
 
-A production-style static website delivery project using **Amazon CloudFront as the public entry point** and a **private Amazon S3 bucket as the origin**.
+## Website
 
-The project focuses on secure content delivery, edge caching, HTTPS enforcement, response security headers, compression, and cache invalidation.
+**Luma — Culinary Excellence**
+
+A responsive static restaurant website built with HTML and CSS and delivered through the CloudFront distribution.
+
+This project demonstrates secure static website delivery using a **private Amazon S3 origin** and **Amazon CloudFront** as the public delivery layer.
 
 ## Architecture
 
@@ -39,7 +43,7 @@ The project focuses on secure content delivery, edge caching, HTTPS enforcement,
 
 ## Objectives
 
-- Deliver a static website globally through Amazon CloudFront.
+- Deliver a static website through Amazon CloudFront.
 - Keep the S3 origin private instead of exposing it directly to the internet.
 - Use CloudFront OAC to authorize access to S3.
 - Enforce HTTPS for viewer requests.
@@ -55,11 +59,8 @@ The project focuses on secure content delivery, edge caching, HTTPS enforcement,
 | **Amazon S3** | Private origin for website files |
 | **Amazon CloudFront** | CDN and public delivery layer |
 | **CloudFront Origin Access Control (OAC)** | Secure CloudFront-to-S3 authorization |
-| **AWS IAM / S3 Bucket Policy** | Restrict object access to the CloudFront distribution |
-| **AWS Certificate Manager (ACM)** | TLS certificates for custom-domain deployments |
+| **S3 Bucket Policy** | Restrict object access to the CloudFront distribution |
 | **CloudFront Response Headers Policy** | Add browser security headers |
-
-> **Note:** This implementation uses the CloudFront-provided domain name in the sandbox, so a custom ACM certificate/domain is not required for the current deployment.
 
 ## Implementation
 
@@ -77,7 +78,7 @@ S3 was kept private with **Block Public Access enabled**. The bucket is used as 
 
 Created a CloudFront distribution with the S3 bucket configured as the origin.
 
-The distribution acts as the public entry point for the application and provides edge-based content delivery.
+The distribution acts as the public entry point and provides edge-based content delivery.
 
 ![CloudFront distribution](screenshots/cloudfront-distribution.png)
 
@@ -114,7 +115,7 @@ CloudFront
 
 This ensures viewers use encrypted connections to the CDN.
 
-### 6. Caching and Compression
+### 6. Edge Caching and Compression
 
 Used the recommended S3-oriented CloudFront cache configuration and enabled automatic object compression.
 
@@ -142,7 +143,7 @@ Implemented CloudFront cache invalidation using:
 /*
 ```
 
-This allows updated website content to be propagated without waiting for previously cached objects to expire.
+This allows updated website content to be served without waiting for previously cached objects to expire.
 
 ![CloudFront cache invalidation](screenshots/cache-invalidation.png)
 
@@ -161,49 +162,3 @@ The deployment was validated through the following checks:
 | Response security headers | ✅ |
 | Cache invalidation | ✅ |
 
-## Project Structure
-
-```text
-.
-├── images/
-│   ├── famous1.jpeg
-│   ├── famous2.jpeg
-│   ├── famous3.jpeg
-│   ├── hero.png
-│   └── heronoobj.png
-├── screenshots/
-│   ├── access-denied.png
-│   ├── access-website-through-cloudfront-domain-name.png
-│   ├── cache-invalidation.png
-│   ├── cloudfront-distribution.png
-│   ├── compress.png
-│   ├── created-s3-bucket.png
-│   ├── response-header-policy.png
-│   ├── s3-bucket-policy.png
-│   ├── s3-bucket.png
-│   └── uploaded-s3.png
-├── index.html
-├── style.css
-└── readme.md
-```
-
-## Key Takeaways
-
-This project demonstrates the separation of responsibilities between the origin and delivery layers:
-
-- **S3** stores the website as a private origin.
-- **CloudFront** provides the public delivery layer, caching, HTTPS enforcement, compression, and response header controls.
-- **OAC + bucket policy** prevent direct public access to the S3 objects.
-- **Invalidation** provides an operational mechanism for publishing updated content through the CDN.
-
-## Future Improvements
-
-Potential production extensions include a custom domain with ACM, Route 53 DNS, AWS WAF, and CI/CD automation for S3 deployment and CloudFront invalidation.
-
-## Website
-
-**Luma — Culinary Excellence**
-
-A responsive static restaurant website built with HTML and CSS and delivered through the CloudFront distribution.
-
----
