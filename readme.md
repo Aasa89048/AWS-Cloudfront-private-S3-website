@@ -166,9 +166,7 @@ The deployment was validated through the following checks:
 
 - Custom domain with **Route 53** and managed TLS using **AWS Certificate Manager (ACM)**
 - **AWS WAF** for additional web application protection
-- **GitHub Actions** CI/CD for automated S3 deployment and CloudFront invalidation
 - **CloudFront logging and CloudWatch** monitoring for traffic, errors, and cache behavior
 - Further **performance optimization** through asset optimization and cache-control policies
-- **Terraform or CloudFormation** to manage the infrastructure as code
 
 > These are planned improvements and are **not part of the current implementation**.
